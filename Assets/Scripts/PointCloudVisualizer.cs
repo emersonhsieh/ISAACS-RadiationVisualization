@@ -33,7 +33,7 @@ public class PointCloudVisualizer : MonoBehaviour {
             int ind = 0;
             foreach (PointXYZIntensity point in cloud.Points)
             {
-                currParticles[ind].position = new Vector3(point.X, -point.Z, point.Y);
+                currParticles[ind].position = new Vector3(point.X, point.Y, point.Z);
                 currParticles[ind].startSize = 0.1f;
                 ind += 1;
             }

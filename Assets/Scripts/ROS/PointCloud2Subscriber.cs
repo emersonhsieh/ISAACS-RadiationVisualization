@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PointCloud2Subscriber : ROSBridgeSubscriber
 {
+    public static string rendererObjectName = "Lidar Cloud Renderer";
 
     public new static string GetMessageTopic()
     {
@@ -31,7 +32,7 @@ public class PointCloud2Subscriber : ROSBridgeSubscriber
         sb.Append(pointCloudMsg.GetFieldString());
         Debug.Log(sb.ToString());
 
-        PointCloudVisualizer visualizer = GameObject.Find("Cloud Renderer").GetComponent<PointCloudVisualizer>();
+        PointCloudVisualizer visualizer = GameObject.Find(rendererObjectName).GetComponent<PointCloudVisualizer>();
         visualizer.SetPointCloud(pointCloudMsg.GetCloud());
     }
 }
